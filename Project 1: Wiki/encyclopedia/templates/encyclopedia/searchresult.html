@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Search results
+{% endblock %}
+
+{% block body %}
+
+<h2>This is what we have found:</h2>
+<ul>
+    {% for entry in entries_with_substring %}
+    <a href="{% url 'entry' entry %}">
+        <li>{{ entry }}</li>
+    </a>
+    {% endfor %}
+</ul>
+{% endblock %}

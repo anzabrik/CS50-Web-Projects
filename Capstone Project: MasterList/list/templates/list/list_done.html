@@ -1,0 +1,23 @@
+{% extends "list/base.html" %}
+
+{% block title %}What will you do now?{% endblock %}
+{% block body %}
+
+<h2>You've just added books to the list "{{ list }}"</h2><br>
+{% if list.masters.count == 1 %}
+<a class="btn btn-primary" href="{% url 'master' list.masters.first.id list.masters.first.slug %}">See the MasterRanking
+    for
+    "{{ list.masters.first }}"</a><br><br>
+{% elif list.masters.count == 0 %}
+{% else %}
+<p>See the final ranking for:</p>
+{% for master in list.masters.all %}
+<p><a class="btn btn-primary" href="{% url 'master' master.id master.slug %}">"{{ master }}"</a></p>
+{% endfor %}
+{% endif %}
+
+<a class="btn btn-primary" href="{% url 'list_add' %}">Add another list</a><br><br>
+<a class="btn btn-primary" href="{% url 'list_edit' list.id list.slug %}">
+    Make changes to the list "{{ list }}"</a><br><br>
+
+{% endblock %}

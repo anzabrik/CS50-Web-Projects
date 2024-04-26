@@ -1,0 +1,82 @@
+{% extends "auctions/layout.html" %}
+{% block title %}
+{{ listing.title }}
+{% endblock %}
+{% block body %}
+<h2>{{ listing.title }}</h2>
+{% if listing.is_active %}
+<form action="{% url 'watchlist_add_remove' listing.id %}" method="post">
+    {% csrf_token %}
+    {% if btn %}
+    <input class="btn btn-primary" type="submit" value="Remove from watchlist">
+    {% else %}
+    <input class="btn btn-primary" type="submit" value="Add to watchlist">
+    {% endif %}
+</form>
+<div class="card mb-3">
+    {% if listing.image %}
+    <img src="{{ listing.image }}" class="card-img-top" style="width:400px;" alt="{{ listing.title }}">
+    {% endif %}
+    <div class="card-body">
+        <p class="card-text">{{ listing.description}} </p>
+        <p class="card-text"><small class="text-body-secondary">Created: {{ listing.time }}</small></p>
+        {% if listing.current_price %}
+        <h5 class="card-title">${{ listing.current_price }}</h5>
+        {% else %}
+        <h5 class="card-title">${{ listing.starting_price }}</h5>
+        {% endif %}
+        <p class=""></p>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+        <form action="{% url 'listings' listing.id %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <p></p>
+            <input class="btn btn-primary" type="submit" value="Place Bid">
+        </form>
+        <p></p>
+        {% if btn_close_auction %}
+        <form action="{% url 'close_auction' listing.id %}" method="post">
+            {% csrf_token %}
+            <input class="btn btn-primary" type="submit" value="Close Auction">
+        </form>
+        {% endif %}
+    </div>
+</div>
+{% else %}
+<h3>The listing is not active</h3>
+{% if listing.winner %}
+<h3>{{ you_winner }}</h3>
+{% endif %}
+{% endif %}
+<p></p>
+<div class="row d-flex justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+            <div class="card-body p-4">
+                <div class="form-outline mb-4">
+                    <form action="{% url 'add_comment' listing.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" id="addANote" class="form-control" name="text"
+                            placeholder="Type comment..." />
+                        <input class="btn btn-primary" type="submit" value="Add Comment">
+                    </form>
+                </div>
+                {% for comment in comments %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>{{ comment.text }}</p>
+
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-row align-items-center">
+                                <p class="small mb-0 ms-2">{{ comment.user }}</p>
+                            </div>
+                            <div class="d-flex flex-row align-items-center">
+                                <p class="small text-muted mb-0">{{ comment.time }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endblock %}

@@ -1,0 +1,60 @@
+{% extends "list/base.html" %}
+{% load static %}
+{% block title %}Author Ranking{% endblock %}
+{% block body %}
+
+<h1 id="master-name" data-masterid="{{ master.id }}">{{ master }}</h1>
+<div id="master-btns">
+    <a id="master-edit-btn" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="Change name">
+        <img src="{% static 'list/edit.svg' %}" style="width: 16px;"></a>
+    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteMasterModal"
+        data-toggle="tooltip" data-placement="top" title="Delete MasterRanking">
+        <img src="{% static 'list/delete.svg' %}" style="width: 16px;">
+    </button>
+</div>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{% url 'master' master.id master.slug %}">Book Ranking</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Author Ranking</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'master_lists' master.id master.slug %}">Original Lists</a>
+    </li>
+</ul>
+
+{% if authors_in_master_by_rating %}
+<br>
+<p>Each author’s rating reflects the overall rating of all the books this author has within this
+    master-rating.
+</p>
+<br>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Place</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Name</th>
+            <th scope="col">Books by this author in this master-list</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aim in authors_in_master_by_rating %}
+        <tr>
+            <td>{{ aim.place }}</td>
+            <td>{{ aim.rating }}</td>
+            <td>{{ aim.author.name }}</td>
+            <td>{{ aim.get_books }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<br>
+<p>No authors yet! Add the authors to your book lists and see who has the most influence.</p>
+<br>
+{% endif %}
+
+{% endblock %}

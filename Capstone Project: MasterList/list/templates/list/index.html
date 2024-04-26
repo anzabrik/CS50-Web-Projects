@@ -1,0 +1,79 @@
+{% extends 'list/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Login/Register{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row align-items-center">
+
+        <div class="col-3">
+            <div>
+                <h1 class="text-center">Identify Top Books In Any Topic</h1>
+                <br>
+                <p class="lead">How do you know which books are worth your time? </p>
+                <p class="lead">MasterRanking merges lists you
+                    provide and ranks every book and author based on their place, number of occurences, and the
+                    credibility of your sources giving you a bird's-eye view of any field of knowledge.</p>
+                <div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group d-grid gap-2">
+                            <label for="email">Email</label>
+                            <input autofocus class="form-control" type="email" name="email" placeholder="Email">
+                            <label for="password">Password</label>
+                            <input class="form-control" type="password" name="password" placeholder="Password">
+
+                            <button formaction="{% url 'register' %}" class="btn btn-primary"
+                                type="input">Register</button>
+                            <button formaction="{% url 'login' %}" class="btn btn-primary" type="input">Login</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-9" data-bs-theme="dark">
+            <div id="carouselExampleIndicators" class="carousel slide m-4">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'list/mr1.jpg' %}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'list/mr2.jpg' %}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'list/mr3.jpg' %}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'list/mr4.jpg' %}" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

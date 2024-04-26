@@ -1,0 +1,37 @@
+{% extends 'list/base.html' %}
+
+{% block title %}MasterRankings{% endblock %}
+
+{% block body %}
+
+{% if masters.count > 0 %}
+
+<h1>All MasterRankings You've Created</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Contains lists</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for master in masters %}
+
+        <tr>
+            <td><a href="{% url 'master' master.id master.slug %}">{{ master }}</a></td>
+            <td> {% if master.list_set.count > 0 %}
+                {% for list in master.list_set.all %}
+                - <a href="{% url 'list' list.id list.slug %}">{{ list }}</a><br>
+                {% endfor %}
+                {% endif %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<br>
+<h1>You haven't created any MasterRankings yet</h1><br>
+<a class="btn btn-primary" href="{% url 'master_add' %}">Add a MasterRanking</a>
+{% endif %}
+{% endblock %}

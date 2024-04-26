@@ -1,0 +1,23 @@
+{% extends 'network/layout.html' %}
+{% block title %}{{ profile_owner.username }}: Profile{% endblock %}
+{% block body %}
+<h1 id="{{ profile_owner.id }}">{{ profile_owner.username }}</h1>
+<p>Followers: {{ profile_owner.followed_by.count }}</p>
+<p>Follows: {{ profile_owner.follows.count }}</p>
+{% if not is_same_user %}
+<form action="{% url 'toggle_follow' profile_owner.id %}" method="post">
+    {% csrf_token %}
+    {% if not is_follower %}
+    <input class="btn btn-primary" type="submit" value="Follow">
+    {% else %}
+    <input class="btn btn-primary" type="submit" value="Unfollow">
+    {% endif %}
+</form>
+{% endif %}
+<h4>Posts</h4>
+<input id="previous" class="btn btn-success" type="submit" value="Previous">
+<input id="next" class="btn btn-success" type="submit" value="Next">
+<p></p>
+<div id="posts">
+</div>
+{% endblock %}

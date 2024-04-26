@@ -1,0 +1,84 @@
+body {
+    font-family: Roboto;
+    color: #15241D;
+    width: 90%;
+    margin: 0 auto;
+    background-color: #FDFDFD;
+}
+
+
+.card {
+    border: 1px solid #888467;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.nav-link {
+    font-family: Poppins;
+    font-size: 140%;
+
+}
+
+
+#logo {
+    padding: .1rem 1rem;
+}
+
+h2 {
+    font-family: Roboto;
+}
+
+.cat_items_price {
+    font-style: italic;
+}
+
+.btn-primary,
+.button {
+    font-family: Poppins;
+    background-color: #434B31;
+    color: #F1F3F2;
+    border-color: #15241D;
+}
+
+
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(136, 133, 104, 0.5);
+    border-color: #434B31;
+}
+
+
+.form-control:focus {
+    border-color: #434B31;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(136, 133, 104, 0.5);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    color: #F1F3F2;
+    border-color: #15241D;
+    background-color: #888467;
+}
+
+
+a {
+    color: #3F4C30;
+}
+
+
+a:hover,
+a.bg-light:hover,
+a.bg-light:focus {
+    color: #888467;
+}

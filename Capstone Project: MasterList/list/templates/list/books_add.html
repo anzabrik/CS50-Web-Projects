@@ -1,0 +1,24 @@
+{% extends 'list/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add Books{% endblock %}
+
+{% block body %}
+
+{% if not list.places_matter %}
+<div id="books-add">
+</div>
+{% endif %}
+<h3>Add books to list "{{ list }}",
+    {% if list.masters.count == 1 %}
+    which is in MasterRanking "{{ list.masters.first }}" </h3>
+{% else %}
+which is in MasterRankings:
+</h3>
+{% for master in list.masters.all %}
+<h3> - "{{ master }}"</h3>
+{% endfor %}
+{% endif %}
+{% crispy formset helper %}
+
+{% endblock %}

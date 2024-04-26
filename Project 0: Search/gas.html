@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>Google Advanced Search</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <a href="index.html" class="top-right">Google Search</a>
+        <div class="pic_sm">
+            <img src="google.JPG" height="36px">
+        </div>
+        <div style="color: #d93025; margin: 25px 35px;">
+        <h1 style="margin-left: 10px; font-size: 20px;">Advanced Search</h1>
+        </div>
+        <hr style="color:blue">
+        <div style="margin-left: 45px">
+            <h2>Find pages with...</h2>
+        </div>
+        <div style="margin-left: 45px; margin-right:50%;">
+            <form action="https://google.com/search">
+                <table style="width:100%">
+                    <tr>
+                        <td><label for="as_q">all these words: </label></td>
+                        <td style="width:70%"><input type="text" class="inp" name="as_q" id="as_q" autofocus="autofocus"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="as_epq">this exact word or phrase: </label></td>
+                        <td><input type="text" class="inp" name="as_epq" id="as_epq"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="as_oq">any of these words: </label></td>
+                        <td><input type="text" class="inp"  name="as_oq" id="as_oq"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="as_eq">none of these words: </label></td>
+                        <td><input type="text" class="inp" name="as_eq" id="as_eq"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Advanced Search" id="adv_search"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
+

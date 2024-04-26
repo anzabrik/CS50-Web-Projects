@@ -1,0 +1,16 @@
+{% extends 'encyclopedia/layout.html' %}
+{% block title %}
+New page
+{% endblock %}
+
+{% block body %}
+{% if message %}
+<h1 class="error">{{ message }}</h1>
+{% endif %}
+<h3>Type in the title and the text of the entry:</h3>
+<form action="{% url 'new_page' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit your entry">
+</form>
+{% endblock %}
