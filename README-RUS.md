@@ -13,11 +13,11 @@
 Приложение на Джанго под названием МастерРейтинг. Приложение вычисляет лучшие книги и авторов в той или иной теме на основе списков, загруженных пользователем.
 
 Русскоязычная версия:
+- [сайт (демо-версия)]()
 - [код (GitHub)](https://github.com/anzabrik/MasterRanking-Rus)
 - [видео демо](https://youtu.be/4m2JK5gQPnw)
-- [сайт (демо-версия)]()
 
 Англоязычная версия:
-[код (GitHub)](https://github.com/anzabrik/MasterRanking)
-- [видео демо](https://youtu.be/VljTP1cG0S8)
 - [сайт (демо-версия)]()
+- [код (GitHub)](https://github.com/anzabrik/MasterRanking)
+- [видео демо](https://youtu.be/VljTP1cG0S8)
