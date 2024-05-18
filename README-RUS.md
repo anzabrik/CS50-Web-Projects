@@ -15,9 +15,9 @@
 Русскоязычная версия:
 - [сайт (демо-версия)]()
 - [код (GitHub)](https://github.com/anzabrik/MasterRanking-Rus)
-- [видео демо](https://youtu.be/4m2JK5gQPnw)
+- [видео демо](https://youtu.be/VljTP1cG0S8)
 
 Англоязычная версия:
 - [сайт (демо-версия)]()
 - [код (GitHub)](https://github.com/anzabrik/MasterRanking)
-- [видео демо](https://youtu.be/VljTP1cG0S8)
+- [видео демо](https://youtu.be/4m2JK5gQPnw)
