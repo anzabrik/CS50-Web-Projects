@@ -11,6 +11,5 @@ Instructor: Brian Yu.
 
 ## Capstone
 The capstone project is a Django-based web app called MasterRanking, which calculates top books and authors in a topic based on lists provided by the user:
-- [website (interactive demo)]()
 - [code (GitHub repository)](https://github.com/anzabrik/MasterRanking)
 - [video demo](https://youtu.be/4m2JK5gQPnw)
